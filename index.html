@@ -15,17 +15,62 @@
     <meta property="og:url" content="https://cheatsheets.zip/index" />
     <meta property="og:image" content="https://xxx.com/image.jpg" />
 
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="base/main.css">
     <title>Aula 04</title>
     
 </head>
 <body>
     
-    <header>
-        <aside>
-            <nav>
-                
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/" class="logo-link">
+                    <i class="ph ph-cube"></i>
+                    <span>DevCorp</span>
+                </a>
+            </div>
+
+            <!-- Menu Principal -->
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">
+                            <i class="ph ph-house"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <!-- Produtos com sub menu -->
+                     <li class="nav-item has-submenu">
+                        <a href="#" class="nav-link">
+                            <i class="ph ph-package"></i>
+                            <span>Produtos</span>
+                            <i class="ph ph-caret-down submenu-arrow"></i>
+                        </a>
+
+                        <ul class="submenu">
+                            <li class="submenu-item">
+                                <a href="#" class="submenu-link">
+                                    <i class="ph ph-desktop"></i>
+                                    <span>Software Desktop</span>
+                                </a>
+                            </li>
+                            <li class="submenu-item">
+                                <a href="#" class="submenu-link">
+                                    <i class="ph ph-device-mobile"></i>
+                                    <span>App Mobile</span>
+                                </a>
+                            </li>
+                        </ul>
+                     </li>
+
+                </ul>
             </nav>
-        </aside>
+
+        </div>
     </header>
 
     <main>
