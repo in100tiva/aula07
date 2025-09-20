@@ -1,0 +1,657 @@
+/* ===============================================
+   SISTEMA DE SUBMENUS AVANÇADO
+   =============================================== */
+
+/* ===============================================
+   SUBMENU BASE
+   =============================================== */
+
+.submenu {
+    position: absolute;
+    top: calc(100% + var(--submenu-offset));
+    left: 0;
+    min-width: var(--submenu-width);
+    max-width: 350px;
+    background: var(--color-surface);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-xl);
+    padding: var(--space-2);
+    z-index: var(--z-index-dropdown);
+    
+    /* Estados de animação */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.95);
+    transform-origin: top left;
+    transition: 
+        opacity var(--duration-normal) var(--ease-out),
+        visibility var(--duration-normal) var(--ease-out),
+        transform var(--duration-normal) var(--ease-out);
+    
+    /* Prevenção de overflow */
+    overflow: hidden;
+    
+    /* Bordas sutis */
+    border-top: 3px solid var(--color-primary);
+}
+
+/* Submenu visível */
+.has-submenu:hover .submenu,
+.has-submenu:focus-within .submenu,
+.submenu:hover,
+.submenu:focus-within {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* Delay para evitar fechamento acidental */
+.submenu {
+    transition-delay: 0ms, 0ms, 0ms;
+}
+
+.has-submenu:hover .submenu {
+    transition-delay: 150ms, 150ms, 150ms;
+}
+
+/* ===============================================
+   ITENS DO SUBMENU
+   =============================================== */
+
+.submenu-item {
+    position: relative;
+    list-style: none;
+    margin: 0;
+}
+
+.submenu-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--border-radius-md);
+    transition: var(--transition-colors);
+    position: relative;
+    outline-offset: 2px;
+    white-space: nowrap;
+    min-height: 44px; /* Acessibilidade - tamanho mínimo de toque */
+}
+
+/* Ícones dos itens do submenu */
+.submenu-link i {
+    font-size: var(--font-size-lg);
+    flex-shrink: 0;
+    transition: var(--transition-transform);
+    opacity: 0.7;
+    width: 20px;
+    text-align: center;
+}
+
+/* Texto dos itens */
+.submenu-link span {
+    flex: 1;
+    transition: var(--transition-colors);
+}
+
+/* ===============================================
+   ESTADOS INTERATIVOS DO SUBMENU
+   =============================================== */
+
+/* Hover */
+.submenu-link:hover {
+    color: var(--color-primary);
+    background: linear-gradient(
+        135deg,
+        var(--color-surface-secondary),
+        rgba(255, 255, 255, 0.05)
+    );
+    transform: translateX(4px);
+    box-shadow: var(--shadow-sm);
+}
+
+.submenu-link:hover i {
+    transform: scale(1.1);
+    opacity: 1;
+    color: var(--color-primary);
+}
+
+/* Focus */
+.submenu-link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    background: var(--color-surface-secondary);
+    color: var(--color-primary);
+}
+
+/* Active */
+.submenu-link:active {
+    transform: translateX(2px) scale(0.98);
+}
+
+/* Item ativo */
+.submenu-item.active .submenu-link {
+    color: var(--color-primary);
+    background: var(--color-surface-secondary);
+    font-weight: var(--font-weight-semibold);
+}
+
+.submenu-item.active .submenu-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 20px;
+    background: var(--gradient-primary);
+    border-radius: 0 var(--border-radius-full) var(--border-radius-full) 0;
+}
+
+/* ===============================================
+   SUBMENUS ANINHADOS (TERCEIRO NÍVEL)
+   =============================================== */
+
+.has-nested {
+    position: relative;
+}
+
+.nested-menu {
+    position: absolute;
+    top: 0;
+    left: calc(100% + var(--space-2));
+    min-width: 250px;
+    background: var(--color-surface);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-xl);
+    padding: var(--space-2);
+    z-index: calc(var(--z-index-dropdown) + 1);
+    
+    /* Estados de animação */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-10px) scale(0.95);
+    transform-origin: left center;
+    transition: 
+        opacity var(--duration-normal) var(--ease-out),
+        visibility var(--duration-normal) var(--ease-out),
+        transform var(--duration-normal) var(--ease-out);
+    
+    /* Delay mais longo para evitar abertura acidental */
+    transition-delay: 0ms, 0ms, 0ms;
+}
+
+/* Mostrar submenu aninhado */
+.has-nested:hover .nested-menu,
+.has-nested:focus-within .nested-menu,
+.nested-menu:hover,
+.nested-menu:focus-within {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0) scale(1);
+    transition-delay: 200ms, 200ms, 200ms;
+}
+
+/* Seta para submenu aninhado */
+.nested-arrow {
+    font-size: var(--font-size-xs) !important;
+    transition: var(--transition-transform);
+    margin-left: auto;
+    opacity: 0.5;
+}
+
+.has-nested:hover .nested-arrow,
+.has-nested:focus-within .nested-arrow {
+    transform: translateX(2px);
+    opacity: 1;
+    color: var(--color-primary);
+}
+
+/* ===============================================
+   ITENS DO SUBMENU ANINHADO
+   =============================================== */
+
+.nested-item {
+    list-style: none;
+    margin: 0;
+}
+
+.nested-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    border-radius: var(--border-radius-md);
+    transition: var(--transition-colors);
+    white-space: nowrap;
+    min-height: 40px;
+}
+
+.nested-link i {
+    font-size: var(--font-size-base);
+    flex-shrink: 0;
+    opacity: 0.7;
+    transition: var(--transition-colors);
+    width: 16px;
+    text-align: center;
+}
+
+.nested-link:hover {
+    color: var(--color-primary);
+    background: var(--color-surface-secondary);
+    transform: translateX(2px);
+}
+
+.nested-link:hover i {
+    opacity: 1;
+    color: var(--color-primary);
+}
+
+/* ===============================================
+   SEPARADORES E GRUPOS
+   =============================================== */
+
+.submenu-separator {
+    height: 1px;
+    background: var(--color-border-subtle);
+    margin: var(--space-2) var(--space-2);
+    border: none;
+}
+
+.submenu-group {
+    padding: var(--space-2) 0;
+}
+
+.submenu-group:not(:last-child) {
+    border-bottom: 1px solid var(--color-border-subtle);
+    margin-bottom: var(--space-2);
+    padding-bottom: var(--space-3);
+}
+
+.submenu-title {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-1);
+}
+
+/* ===============================================
+   POSICIONAMENTO INTELIGENTE
+   =============================================== */
+
+/* Submenu à direita quando próximo da borda esquerda */
+.nav-item.align-right .submenu {
+    left: auto;
+    right: 0;
+    transform-origin: top right;
+}
+
+/* Submenu para cima quando próximo da borda inferior */
+.nav-item.align-up .submenu {
+    top: auto;
+    bottom: calc(100% + var(--submenu-offset));
+    transform-origin: bottom left;
+}
+
+.nav-item.align-up .submenu {
+    transform: translateY(10px) scale(0.95);
+}
+
+.nav-item.align-up:hover .submenu,
+.nav-item.align-up:focus-within .submenu {
+    transform: translateY(0) scale(1);
+}
+
+/* Submenu aninhado à esquerda quando próximo da borda direita */
+.has-nested.align-left .nested-menu {
+    left: auto;
+    right: calc(100% + var(--space-2));
+    transform-origin: right center;
+    transform: translateX(10px) scale(0.95);
+}
+
+.has-nested.align-left:hover .nested-menu,
+.has-nested.align-left:focus-within .nested-menu {
+    transform: translateX(0) scale(1);
+}
+
+/* ===============================================
+   EFEITOS VISUAIS AVANÇADOS
+   =============================================== */
+
+/* Borda animada */
+.submenu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.has-submenu:hover .submenu::before,
+.has-submenu:focus-within .submenu::before {
+    transform: scaleX(1);
+    transition-delay: 200ms;
+}
+
+/* Efeito de brilho */
+.submenu::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.03),
+        transparent
+    );
+    transform: translateX(-100%);
+    transition: transform var(--duration-slower) var(--ease-out);
+    pointer-events: none;
+}
+
+.has-submenu:hover .submenu::after {
+    transform: translateX(100%);
+    transition-delay: 300ms;
+}
+
+/* ===============================================
+   INDICADORES VISUAIS
+   =============================================== */
+
+/* Seta conectora entre menu e submenu */
+.submenu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 20px;
+    width: 12px;
+    height: 12px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-bottom: none;
+    border-right: none;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+/* Para submenus aninhados */
+.nested-menu::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -6px;
+    width: 12px;
+    height: 12px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-top: none;
+    border-right: none;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+/* ===============================================
+   ANIMAÇÕES ESPECIAIS
+   =============================================== */
+
+/* Animação de entrada escalonada */
+.submenu-item {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 
+        opacity var(--duration-normal) var(--ease-out),
+        transform var(--duration-normal) var(--ease-out);
+}
+
+.has-submenu:hover .submenu-item,
+.has-submenu:focus-within .submenu-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.submenu-item:nth-child(1) { transition-delay: 50ms; }
+.submenu-item:nth-child(2) { transition-delay: 100ms; }
+.submenu-item:nth-child(3) { transition-delay: 150ms; }
+.submenu-item:nth-child(4) { transition-delay: 200ms; }
+.submenu-item:nth-child(5) { transition-delay: 250ms; }
+.submenu-item:nth-child(6) { transition-delay: 300ms; }
+
+/* Animação de pulso para itens importantes */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.submenu-item.featured .submenu-link {
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
+    color: var(--color-white);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.submenu-item.featured .submenu-link:hover {
+    animation-play-state: paused;
+    transform: scale(1.05);
+}
+
+/* ===============================================
+   NAVEGAÇÃO POR TECLADO
+   =============================================== */
+
+/* Melhor visibilidade do foco */
+.submenu-link:focus-visible,
+.nested-link:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+    background: var(--color-surface-secondary);
+    z-index: 1;
+}
+
+/* Indicador de navegação por teclado */
+.submenu[data-keyboard-nav="true"] .submenu-link:focus,
+.nested-menu[data-keyboard-nav="true"] .nested-link:focus {
+    background: var(--color-primary);
+    color: var(--color-white);
+    transform: translateX(6px);
+}
+
+/* ===============================================
+   RESPONSIVIDADE MOBILE
+   =============================================== */
+
+@media (max-width: 768px) {
+    .submenu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0 0 0 var(--space-6);
+        margin-top: var(--space-2);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height var(--duration-normal) var(--ease-out);
+        backdrop-filter: none;
+    }
+    
+    .has-submenu.active .submenu {
+        max-height: 500px;
+    }
+    
+    .submenu::before,
+    .submenu::after {
+        display: none;
+    }
+    
+    .submenu-link {
+        padding: var(--space-3) var(--space-4);
+        font-size: var(--font-size-base);
+        border-radius: var(--border-radius-lg);
+        margin-bottom: var(--space-1);
+    }
+    
+    .submenu-link i {
+        font-size: var(--font-size-xl);
+    }
+    
+    /* Submenus aninhados em mobile */
+    .nested-menu {
+        position: static;
+        transform: none;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0 0 0 var(--space-6);
+        margin-top: var(--space-2);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height var(--duration-normal) var(--ease-out);
+    }
+    
+    .has-nested.active .nested-menu {
+        max-height: 300px;
+    }
+    
+    .nested-menu::before {
+        display: none;
+    }
+    
+    .nested-link {
+        padding: var(--space-2) var(--space-3);
+        margin-bottom: var(--space-1);
+    }
+    
+    /* Indicador visual para items com submenu em mobile */
+    .has-submenu > .nav-link::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 6px solid var(--color-text-secondary);
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        margin-left: auto;
+        transition: var(--transition-transform);
+    }
+    
+    .has-submenu.active > .nav-link::after {
+        transform: rotate(90deg);
+        border-left-color: var(--color-primary);
+    }
+    
+    .has-nested > .submenu-link::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 5px solid var(--color-text-secondary);
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+        margin-left: auto;
+        transition: var(--transition-transform);
+    }
+    
+    .has-nested.active > .submenu-link::after {
+        transform: rotate(90deg);
+        border-left-color: var(--color-primary);
+    }
+}
+
+/* ===============================================
+   ACESSIBILIDADE E PREFERÊNCIAS
+   =============================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .submenu,
+    .nested-menu,
+    .submenu-item,
+    .submenu-link,
+    .nested-link {
+        transition: none;
+        animation: none;
+    }
+    
+    .submenu::before,
+    .submenu::after {
+        transition: none;
+    }
+    
+    .submenu-item.featured .submenu-link {
+        animation: none;
+    }
+}
+
+@media (prefers-contrast: high) {
+    .submenu,
+    .nested-menu {
+        border: 2px solid currentColor;
+        backdrop-filter: none;
+        background: var(--color-surface);
+    }
+    
+    .submenu-link:hover,
+    .nested-link:hover {
+        border: 1px solid currentColor;
+    }
+}
+
+/* ===============================================
+   TEMA ESCURO
+   =============================================== */
+
+@media (prefers-color-scheme: dark) {
+    .submenu,
+    .nested-menu {
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(30px) saturate(180%);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .submenu::before,
+    .nested-menu::before {
+        background: rgba(0, 0, 0, 0.95);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* ===============================================
+   PRINT STYLES
+   =============================================== */
+
+@media print {
+    .submenu,
+    .nested-menu {
+        display: none !important;
+    }
+}
