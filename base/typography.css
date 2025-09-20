@@ -1,0 +1,640 @@
+/* ===============================================
+   SISTEMA DE TIPOGRAFIA
+   =============================================== */
+
+/* Importação de Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+
+/* ===============================================
+   CONFIGURAÇÃO BASE
+   =============================================== */
+
+html {
+    font-size: 16px; /* Base para cálculos rem */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-normal);
+    color: var(--color-text-primary);
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    font-variant-ligatures: common-ligatures;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===============================================
+   HEADINGS - SISTEMA DE TÍTULOS
+   =============================================== */
+
+h1, .text-h1 {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    letter-spacing: -0.025em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+}
+
+h2, .text-h2 {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    letter-spacing: -0.025em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+}
+
+h3, .text-h3 {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-snug);
+    letter-spacing: -0.025em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+}
+
+h4, .text-h4 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-snug);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+}
+
+h5, .text-h5 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-snug);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+}
+
+h6, .text-h6 {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-normal);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-2);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ===============================================
+   TEXTO CORPO
+   =============================================== */
+
+p, .text-body {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-4);
+}
+
+.text-lead {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+}
+
+.text-large {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-normal);
+}
+
+.text-small {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+}
+
+.text-xs {
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-normal);
+}
+
+/* ===============================================
+   PESOS DE FONTE
+   =============================================== */
+
+.font-thin {
+    font-weight: var(--font-weight-thin);
+}
+
+.font-light {
+    font-weight: var(--font-weight-light);
+}
+
+.font-regular {
+    font-weight: var(--font-weight-regular);
+}
+
+.font-medium {
+    font-weight: var(--font-weight-medium);
+}
+
+.font-semibold {
+    font-weight: var(--font-weight-semibold);
+}
+
+.font-bold {
+    font-weight: var(--font-weight-bold);
+}
+
+.font-extrabold {
+    font-weight: var(--font-weight-extrabold);
+}
+
+.font-black {
+    font-weight: var(--font-weight-black);
+}
+
+/* ===============================================
+   CORES DE TEXTO
+   =============================================== */
+
+.text-primary {
+    color: var(--color-text-primary);
+}
+
+.text-secondary {
+    color: var(--color-text-secondary);
+}
+
+.text-tertiary {
+    color: var(--color-text-tertiary);
+}
+
+.text-inverse {
+    color: var(--color-text-inverse);
+}
+
+.text-disabled {
+    color: var(--color-text-disabled);
+}
+
+.text-brand {
+    color: var(--color-primary);
+}
+
+.text-accent {
+    color: var(--color-accent);
+}
+
+.text-success {
+    color: var(--color-success);
+}
+
+.text-warning {
+    color: var(--color-warning);
+}
+
+.text-error {
+    color: var(--color-error);
+}
+
+/* ===============================================
+   ALINHAMENTO DE TEXTO
+   =============================================== */
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+/* ===============================================
+   DECORAÇÕES DE TEXTO
+   =============================================== */
+
+.text-underline {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+.text-line-through {
+    text-decoration: line-through;
+}
+
+.text-no-underline {
+    text-decoration: none;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+/* ===============================================
+   ESPAÇAMENTO DE LETRAS E PALAVRAS
+   =============================================== */
+
+.tracking-tighter {
+    letter-spacing: -0.05em;
+}
+
+.tracking-tight {
+    letter-spacing: -0.025em;
+}
+
+.tracking-normal {
+    letter-spacing: 0em;
+}
+
+.tracking-wide {
+    letter-spacing: 0.025em;
+}
+
+.tracking-wider {
+    letter-spacing: 0.05em;
+}
+
+.tracking-widest {
+    letter-spacing: 0.1em;
+}
+
+/* ===============================================
+   ALTURA DE LINHA
+   =============================================== */
+
+.leading-none {
+    line-height: 1;
+}
+
+.leading-tight {
+    line-height: var(--line-height-tight);
+}
+
+.leading-snug {
+    line-height: var(--line-height-snug);
+}
+
+.leading-normal {
+    line-height: var(--line-height-normal);
+}
+
+.leading-relaxed {
+    line-height: var(--line-height-relaxed);
+}
+
+.leading-loose {
+    line-height: var(--line-height-loose);
+}
+
+/* ===============================================
+   TIPOGRAFIA PARA CÓDIGO
+   =============================================== */
+
+code,
+kbd,
+samp,
+pre,
+.text-mono {
+    font-family: var(--font-family-mono);
+    font-feature-settings: 'liga' 0;
+}
+
+code {
+    font-size: 0.875em;
+    color: var(--color-accent);
+    background-color: var(--color-surface-secondary);
+    padding: 0.125rem 0.25rem;
+    border-radius: var(--border-radius-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+pre {
+    background-color: var(--color-surface-secondary);
+    color: var(--color-text-primary);
+    padding: var(--space-4);
+    border-radius: var(--border-radius-md);
+    overflow-x: auto;
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    border: 1px solid var(--color-border);
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+}
+
+kbd {
+    background-color: var(--color-gray-700);
+    color: var(--color-white);
+    padding: 0.125rem 0.375rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.75em;
+    font-weight: var(--font-weight-medium);
+    box-shadow: 
+        0 1px 0 1px var(--color-gray-600),
+        0 2px 0 1px var(--color-gray-800),
+        0 2px 3px var(--color-gray-900);
+}
+
+/* ===============================================
+   CITAÇÕES E BLOCKQUOTES
+   =============================================== */
+
+blockquote {
+    margin: var(--space-6) 0;
+    padding: var(--space-4) var(--space-6);
+    border-left: 4px solid var(--color-primary);
+    background-color: var(--color-surface-secondary);
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    position: relative;
+}
+
+blockquote p {
+    font-size: var(--font-size-lg);
+    font-style: italic;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+}
+
+blockquote cite {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-style: normal;
+    margin-top: var(--space-2);
+}
+
+blockquote cite::before {
+    content: "— ";
+}
+
+/* ===============================================
+   LISTAS
+   =============================================== */
+
+ul, ol {
+    margin: var(--space-4) 0;
+    padding-left: var(--space-6);
+}
+
+ul {
+    list-style-type: disc;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+li {
+    margin-bottom: var(--space-1);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+}
+
+li::marker {
+    color: var(--color-primary);
+}
+
+/* Lista sem estilo */
+.list-none {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Lista com ícones customizados */
+.list-icon {
+    list-style: none;
+    padding: 0;
+}
+
+.list-icon li {
+    position: relative;
+    padding-left: var(--space-6);
+}
+
+.list-icon li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+}
+
+/* ===============================================
+   LINKS
+   =============================================== */
+
+a {
+    color: var(--color-link);
+    transition: var(--transition-colors);
+    text-decoration: none;
+    border-radius: var(--border-radius-sm);
+    outline-offset: 2px;
+}
+
+a:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+a:active {
+    color: var(--color-link-active);
+}
+
+a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    text-decoration: none;
+}
+
+/* Links externos */
+a[href^="http"]:not([href*="localhost"]):not([href*="127.0.0.1"])::after {
+    content: " ↗";
+    font-size: 0.875em;
+    opacity: 0.7;
+}
+
+/* ===============================================
+   SELEÇÃO DE TEXTO
+   =============================================== */
+
+::selection {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+::-moz-selection {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* ===============================================
+   GRADIENTES DE TEXTO
+   =============================================== */
+
+.text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.text-gradient-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ===============================================
+   EFEITOS ESPECIAIS
+   =============================================== */
+
+.text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-strong {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.text-glow {
+    text-shadow: 0 0 10px var(--color-primary);
+}
+
+/* Efeito de texto cortado */
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.text-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.text-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ===============================================
+   RESPONSIVIDADE TIPOGRÁFICA
+   =============================================== */
+
+@media (max-width: 768px) {
+    h1, .text-h1 {
+        font-size: var(--font-size-3xl);
+    }
+    
+    h2, .text-h2 {
+        font-size: var(--font-size-2xl);
+    }
+    
+    h3, .text-h3 {
+        font-size: var(--font-size-xl);
+    }
+    
+    .text-lead {
+        font-size: var(--font-size-base);
+    }
+    
+    blockquote {
+        margin: var(--space-4) 0;
+        padding: var(--space-3) var(--space-4);
+    }
+    
+    blockquote p {
+        font-size: var(--font-size-base);
+    }
+}
+
+/* ===============================================
+   IMPRESSÃO
+   =============================================== */
+
+@media print {
+    * {
+        color: black !important;
+        background: white !important;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+    
+    p, li {
+        orphans: 3;
+        widows: 3;
+    }
+    
+    blockquote {
+        page-break-inside: avoid;
+        border-left: 4px solid black;
+        background: none;
+    }
+    
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+    }
+    
+    .text-gradient,
+    .text-gradient-accent {
+        -webkit-text-fill-color: unset;
+        background: none;
+        color: black;
+    }
+}
